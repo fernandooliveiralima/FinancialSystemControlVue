@@ -5,9 +5,12 @@ import {computed, ref, type Ref, onMounted } from 'vue';
 /* app imports */
 import { items } from '../data/items';
 import type { Item } from '../types/Item';
-import transactionsList from './transactionsList.vue';
 import { useDateFilterStore } from '@/stores/dateFilter';
 import { useFormatValuesStore } from '@/stores/formatValues';
+
+/* imports components */
+import transactionsList from './transactionsList.vue';
+import Header from './Header.vue';
 
 /* variables */
 const list = ref(items);
@@ -19,6 +22,9 @@ const title = ref('');
 const amount  = ref();
 
 
+
+
+
 /* vue methods */
 onMounted(()=>{
     updateValues()
@@ -26,13 +32,13 @@ onMounted(()=>{
 
 /* app functions */
 
+
+
 /* generateId */
 const generateRandomId = () => Math.round( Math.random() * 1000 );
 
 /* transactionsTypes */
 const transactionsTypes = computed(() => amount.value < 0  ? 'Expense' : 'Income' );
-
-
 
 
 /* updateValues() */
@@ -51,6 +57,8 @@ const updateValues = () => {
 
 };
 
+
+
 /* submitForm() */
 const submitForm = () => {
     if( amount.value === null || title.value === '' ){
@@ -68,12 +76,16 @@ const submitForm = () => {
     };
     list.value.push(transaction);
     
-    console.log(`list->`,list.value,
+    /* console.log(`list->`,list.value,
      `Total->`, updateValues().Total.value,
      `income->`, updateValues().income.value,
      `expense->`, updateValues().expense.value
-     );
+     ); */
     
+     title.value = '';
+     amount.value = '';
+     
+     
     
 };
 
@@ -87,7 +99,7 @@ const submitForm = () => {
             <section class="current-balance-section">
                 <div class="current-balance">
                     <span>Current Balance</span>
-                    <strong> {{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(updateValues().Total.value) }}</strong>
+                    <strong>{{ formatedValues.formatValues( updateValues().Total.value ) }}</strong>
                 </div>
                 <font-awesome-icon icon="fa-solid fa-scale-balanced"></font-awesome-icon>
             </section>
@@ -95,7 +107,7 @@ const submitForm = () => {
             <section class="income-section">
                 <div class="income">
                     <span>Incomes</span>
-                    <strong> {{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(updateValues().income.value) }}</strong>
+                    <strong> {{ formatedValues.formatValues( updateValues().income.value ) }}</strong>
                 </div>
                 <font-awesome-icon icon="fa-solid fa-arrow-up"></font-awesome-icon>
             </section>
@@ -103,7 +115,7 @@ const submitForm = () => {
             <section class="expense-section">
                 <div class="expense">
                     <span>Expenses</span>
-                    <strong> {{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(updateValues().expense.value) }}</strong>
+                    <strong> {{ formatedValues.formatValues( updateValues().expense.value ) }}</strong>
                 </div>
                 <font-awesome-icon icon="fa-solid fa-arrow-down"></font-awesome-icon>
             </section>
@@ -123,13 +135,13 @@ const submitForm = () => {
                 </div>
             </div>
 
-            <button>New Transaction</button>
+            <button type="submit">New Transaction</button>
 
 
         </form>
 
 
-
+        
         <transactionsList v-if="hiddenTransactionsListComponent"></transactionsList>
     </main>
 </template>
@@ -360,6 +372,9 @@ main {
 
     }
 
+    /* bell animation */
+
+   
 
 }
 </style>
