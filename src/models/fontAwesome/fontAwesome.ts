@@ -7,7 +7,8 @@ import {
      faUser,
      faUserSecret,
      faBell,
-     faTrash } from '@fortawesome/free-solid-svg-icons'
+     faTrash,
+     faDollarSign } from '@fortawesome/free-solid-svg-icons'
 
 export default {
     install(Vue: any) {
@@ -17,7 +18,8 @@ export default {
             faArrowUp,
             faArrowDown,
             faBell,
-            faTrash)
+            faTrash,
+            faDollarSign)
         Vue.component('font-awesome-icon', FontAwesomeIcon)
     }
 }

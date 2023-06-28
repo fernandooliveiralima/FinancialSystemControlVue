@@ -8,3 +8,53 @@ body{
     background-color: #ddd;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    /* header component */
+    .header{
+        @apply flex items-center justify-between;
+    }
+    /* .logo */
+    .logo{
+       @apply w-[17%] flex items-center justify-evenly; 
+    }
+    .fa-dollar-sign{
+        @apply text-[2rem];
+    }
+    .header-h3{
+
+    }
+
+    /* .user-transactions */
+    .user-transactions{
+        @apply flex items-center justify-between
+               h-12 w-60 mr-20;
+    }
+    /* .transactions-section */
+    .transactions-section{
+        @apply cursor-pointer w-32;
+    }
+    .fa-bell, .transactions-section-span{
+        @apply text-[1.2rem];
+    }
+    .transactions-section-link{
+        @apply no-underline text-black text-lg;
+    }
+    /* .user-section */
+    .user-section{
+        @apply w-32;
+    }
+    /* .user-section-span */
+    .user-section-span{
+        @apply text-lg;
+    }
+
+    /* .user-section, .transactions-section */
+    .user-section, .transactions-section{
+        @apply w-32 flex items-center justify-evenly p-1.5
+               
+    }
+}

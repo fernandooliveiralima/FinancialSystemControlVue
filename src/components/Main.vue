@@ -76,11 +76,7 @@ const submitForm = () => {
     };
     list.value.push(transaction);
     
-    /* console.log(`list->`,list.value,
-     `Total->`, updateValues().Total.value,
-     `income->`, updateValues().income.value,
-     `expense->`, updateValues().expense.value
-     ); */
+    
     
      title.value = '';
      amount.value = '';
@@ -92,7 +88,7 @@ const submitForm = () => {
 </script>
 
 <template>
-    <main>
+    <main class="main">
         <h1>Transactions Dashboard</h1>
         <section class="all-transactions">
 
@@ -147,7 +143,7 @@ const submitForm = () => {
 </template>
 
 <style lang="scss" scoped>
-main {
+.main {
     margin-top: 15%;
     padding: 1%;
     display: flex;
@@ -302,7 +298,7 @@ main {
             justify-content: space-between;
             width: 45rem;
 
-            .title,
+            
             .amount {
                 color: black;
                 display: flex;
@@ -348,7 +344,7 @@ main {
         }
 
 
-
+        
 
         button {
             background-color: goldenrod;
@@ -372,7 +368,7 @@ main {
 
     }
 
-    /* bell animation */
+    
 
    
 
