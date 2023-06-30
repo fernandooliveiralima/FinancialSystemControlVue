@@ -156,12 +156,13 @@ body {
 
     /* .transactions */
     .transactions {
-        @apply bg-gray-500 h-20 rounded-sm mt-4 flex items-center justify-around
+        @apply bg-gray-500 h-[10rem] rounded-sm mt-4 flex items-center justify-around
         md:flex-col
-         md:h-[13rem] 
+         md:h-[17rem] 
          md:justify-between 
          md:items-center
          xs:w-[47.1rem]
+         xs:h-[17rem]
          p-[0.5rem];
     }
 
@@ -177,7 +178,17 @@ body {
 
     .input-title,
     .input-amount {
-        @apply outline-none p-[0.3rem] border border-indigo-500 rounded-sm
+        @apply outline-none p-[0.3rem] border border-indigo-500 rounded-sm;
+    }
+
+    .info-amount{
+        
+    }
+    .positive{
+        @apply text-green-800;
+    }
+    .negative{
+        @apply text-red-700;
     }
 
     .btn-transactions {

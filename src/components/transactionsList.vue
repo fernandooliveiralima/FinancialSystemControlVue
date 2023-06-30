@@ -1,7 +1,6 @@
 <template>
     <div class="transactions-list">
 
-
         <div class="section-month-container">
             <router-link class="section-month-container-link" to="/">Go To Home</router-link>
 
@@ -32,7 +31,7 @@
             </div>
             <div class="amount">
                 Amount
-                <div class="elements">{{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(items.amount) }}</div>
+                <div class="elements">{{ formatedValues.formatValues(items.amount) }}</div>
             </div>
             <div class="transactionModel">
                 TransactionModel
@@ -62,15 +61,13 @@ const list = ref(items);
 const getFormatedDate = ref(useDateFilterStore().formatedDate(new Date()));
 
 const filteredList: Ref<Array<Item>> = ref([]);
-
+const formatedValues = ref(useFormatValuesStore());
 const currentMonthIndex = ref(new Date().getMonth());
 const currentYear = ref(new Date().getFullYear());
 const currentDay = ref(new Date().getDay());
 const months = ref(['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']);
 
 /* app functions */
-
-
 
 const currentMonth = computed(() => {
     return months.value[currentMonthIndex.value];
@@ -99,13 +96,10 @@ const updateFilteredList = computed(()=>{
     filteredList.value = filteredList.value;
 });
 
-
 const deleteItem = (ID: number)=>{
     const index = list.value.findIndex(item => item.id === ID)
     if (index !== -1) {
       list.value.splice(index, 1)
-      
-
     }
 };
 

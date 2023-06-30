@@ -4,21 +4,15 @@ import { ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 /* Pinia Stores */
 
-
 /* project imports */
 import { items } from '../data/items';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
-
 
 /* variables */
 const list = ref(items);
 const iconClass = ref('');
 
-
 /* app functions */
-
-
 
 watch(list.value, (newList) => iconClass.value = 'bell-animation');
 
@@ -46,7 +40,6 @@ watch(list.value, (newList) => iconClass.value = 'bell-animation');
             </div>
 
         </section>
-
 
     </header>
 </template>
@@ -361,4 +354,4 @@ watch(list.value, (newList) => iconClass.value = 'bell-animation');
     }
 
 </style>
-             
+           
