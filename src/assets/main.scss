@@ -1,10 +1,10 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: #ddd;
 }
 
@@ -12,49 +12,237 @@ body{
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-    /* header component */
-    .header{
-        @apply flex items-center justify-between;
-    }
-    /* .logo */
-    .logo{
-       @apply w-[17%] flex items-center justify-evenly; 
-    }
-    .fa-dollar-sign{
-        @apply text-[2rem];
-    }
-    .header-h3{
+@layer components {
 
+    /* header component */
+    .header {
+        @apply flex items-center justify-between
+        sm:w-[47.5rem];;
+    }
+
+    /* .logo */
+    .logo {
+        @apply w-[15%] flex items-center justify-evenly
+        lg:w-[25%]
+        sm:w-[27%]
+        ;
+    }
+
+    .fa-dollar-sign {
+        @apply text-green-600 
+        text-2xl
+    }
+
+    .header-h3 {
+        @apply font-sans text-2xl
+        
     }
 
     /* .user-transactions */
-    .user-transactions{
-        @apply flex items-center justify-between
-               h-12 w-60 mr-20;
+    .user-transactions {
+        @apply flex items-center justify-between h-12 w-60 mr-20;
     }
+
     /* .transactions-section */
-    .transactions-section{
+    .transactions-section {
         @apply cursor-pointer w-32;
     }
-    .fa-bell, .transactions-section-span{
+
+    .fa-bell,
+    .transactions-section-span {
         @apply text-[1.2rem];
     }
-    .transactions-section-link{
+
+    .transactions-section-link {
         @apply no-underline text-black text-lg;
     }
+
     /* .user-section */
-    .user-section{
+    .user-section {
         @apply w-32;
     }
+
     /* .user-section-span */
-    .user-section-span{
+    .user-section-span {
         @apply text-lg;
     }
 
     /* .user-section, .transactions-section */
-    .user-section, .transactions-section{
+    .user-section,
+    .transactions-section {
         @apply w-32 flex items-center justify-evenly p-1.5
-               
+    }
+
+    /* main -------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+    .main {
+        @apply mt-[15%] p-[1%] flex flex-col
+        xs:w-fit xs:items-center xs:justify-center;
+    }
+
+    .h1-main {
+        @apply font-sans
+    }
+
+    .all-transactions {
+        @apply  flex items-center justify-evenly
+        md:flex-col
+        xs:justify-between
+        xs:w-full
+        xs:h-80;
+    }
+        
+
+    .current-balance-section {
+        @apply bg-white w-[15%] h-20 rounded-sm flex items-center justify-between p-[0.5rem] mt-[1%] shadow-md
+        md:w-[30%];
+    }
+
+    .current-balance {
+        @apply h-full flex flex-col justify-between
+    }
+
+    .span-current-balance,
+    .strong-current-balance {
+        @apply font-sans font-semibold text-blue-500
+    }
+
+    .fa-scale-balanced {
+        @apply text-blue-500 text-[2rem]
+    }
+
+    /* .income-section */
+    .income-section {
+        @apply bg-white w-[15%] h-20 rounded-sm flex items-center justify-between p-[0.5%] mt-[1%] shadow-md
+        md:w-[30%];
+    }
+
+    .fa-arrow-up {
+        @apply text-green-500 text-[2rem]
+    }
+
+    .income {
+        @apply h-full flex flex-col justify-between
+    }
+
+    .span-income-section {
+        @apply font-sans font-semibold text-green-500
+    }
+
+    .strong-income-section {
+        @apply font-sans font-semibold text-green-500
+    }
+
+    /* .expense-section */
+    .expense-section {
+        @apply bg-white w-[15%] h-20 rounded-sm flex items-center justify-between p-[0.5%] mt-[1%] shadow-md
+        md:w-[30%];
+    }
+
+    .fa-arrow-down {
+        @apply text-red-500 text-[2rem]
+    }
+
+    .expense {
+        @apply h-full flex flex-col justify-between
+    }
+
+    .span-expense-section {
+        @apply font-sans font-semibold text-red-500
+    }
+
+    .strong-expense-section {
+        @apply font-sans font-semibold text-red-500
+    }
+
+    /* .transactions */
+    .transactions {
+        @apply bg-gray-500 h-20 rounded-sm mt-4 flex items-center justify-around
+        md:flex-col
+         md:h-[13rem] 
+         md:justify-between 
+         md:items-center
+         xs:w-[47.1rem]
+         p-[0.5rem];
+    }
+
+    .values {
+        @apply flex items-center justify-between w-[45rem]
+        md:flex-col;
+    }
+
+    .amount,
+    .title {
+        @apply text-black flex flex-col font-sans
+    }
+
+    .input-title,
+    .input-amount {
+        @apply outline-none p-[0.3rem] border border-indigo-500 rounded-sm
+    }
+
+    .btn-transactions {
+        @apply bg-orange-400 transition ease-in-out delay-150 p-2 rounded-md
+    }
+
+    @layer utilities {
+        .btn-transactions:hover {
+            @apply bg-purple-700 text-white
+        }
+    }
+
+    /* transactionsList -------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+    .transactions-list {
+        @apply w-full flex items-center justify-center flex-col mt-4
+    }
+
+    .section-month-container-link {
+        @apply text-black no-underline
+        xs:text-sm;
+    }
+
+    .section-month-container {
+        @apply w-full flex items-center justify-around
+    }
+
+    .month-container-date {
+        @apply w-[25rem] flex items-center justify-between
+    }
+
+    .previous-month-btn,
+    .next-month-btn {
+        @apply bg-cyan-700 font-semibold p-[0.3rem] border-none rounded cursor-pointer
+        xs:p-1
+        xs:text-xs;
+    }
+
+    .currentDate {
+        @apply text-base font-semibold font-sans
+        xs:text-xs;
+    }
+
+    .transactions-items {
+        @apply w-[75rem] bg-gray-500 rounded flex items-center justify-between p-[0.5rem] mt-[5rem]
+        md:flex-col
+        md:w-[50%]
+        md:h-[25rem]
+        md:items-start;
+    }
+        
+
+    .id,
+    .date,
+    .category,
+    .title,
+    .amount,
+    .transactionModel,
+    .delete{
+        @apply flex
+        flex-col
+        font-semibold
+        font-sans
+    }
+    .elements{
+        @apply font-[Verdana]
+        font-medium
     }
 }

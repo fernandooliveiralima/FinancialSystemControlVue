@@ -29,8 +29,11 @@ module.exports = {
       'md': { 'max': '768px' },
       // => @media (max-width: 767px) { ... }
 
-      'sm': { 'max': '639px' },
+      'sm': { 'max': '640px' },
       // => @media (max-width: 639px) { ... }
+
+      // => @media (max-width: 320px) { ... }
+      'xs': {'max': '320px'}
     }
   },
   plugins: [],

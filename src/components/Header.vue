@@ -29,7 +29,7 @@ watch(list.value, (newList) => iconClass.value = 'bell-animation');
 
         <section class="logo">
             <font-awesome-icon icon="fa-solid fa-dollar-sign"></font-awesome-icon>
-            <h3 class="header-h3 font-sans text-2xl">Financial System</h3>
+            <h3 class="header-h3">Financial System</h3>
         </section>
 
         <section class="user-transactions">
