@@ -65,7 +65,7 @@ const formatedValues = ref(useFormatValuesStore());
 const currentMonthIndex = ref(new Date().getMonth());
 const currentYear = ref(new Date().getFullYear());
 
-const months = ref(['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']);
+const months = ref(['January', 'February', 'March', 'April', 'May', 'Juny', 'July', 'August', 'September', 'October', 'November', 'December']);
 
 /* app functions */
 
