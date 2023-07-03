@@ -14,7 +14,7 @@ const iconClass = ref('');
 
 /* app functions */
 
-watch(list.value, (newList) => iconClass.value = 'bell-animation');
+watch(list.value, () => iconClass.value = 'bell-animation');
 
 </script>
 

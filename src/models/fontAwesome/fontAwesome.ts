@@ -8,7 +8,8 @@ import {
      faUserSecret,
      faBell,
      faTrash,
-     faDollarSign } from '@fortawesome/free-solid-svg-icons'
+     faDollarSign, 
+     faCircleCheck} from '@fortawesome/free-solid-svg-icons'
 
 export default {
     install(Vue: any) {
@@ -19,7 +20,8 @@ export default {
             faArrowDown,
             faBell,
             faTrash,
-            faDollarSign)
+            faDollarSign,
+            faCircleCheck)
         Vue.component('font-awesome-icon', FontAwesomeIcon)
     }
 }

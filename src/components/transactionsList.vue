@@ -5,9 +5,9 @@
             <router-link class="section-month-container-link" to="/">Go To Home</router-link>
 
             <div class="month-container-date">
-                <button class="previous-month-btn" @click="previousMonth()">Mes Anterior</button>
+                <button class="previous-month-btn" @click="previousMonth()">Previous Month</button>
                 <span class="currentDate">{{ currentMonth }} de {{ currentYear }}</span>
-                <button class="next-month-btn" @click="nextMonth()">Mes Anterior</button>
+                <button class="next-month-btn" @click="nextMonth()">Next Month</button>
             </div>
 
         </div>
@@ -64,7 +64,7 @@ const filteredList: Ref<Array<Item>> = ref([]);
 const formatedValues = ref(useFormatValuesStore());
 const currentMonthIndex = ref(new Date().getMonth());
 const currentYear = ref(new Date().getFullYear());
-const currentDay = ref(new Date().getDay());
+
 const months = ref(['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']);
 
 /* app functions */
@@ -76,17 +76,16 @@ const currentMonth = computed(() => {
 const filteredListTransactions = computed(() => {
     const targetMonth = ref(currentMonthIndex.value);
     return list.value.filter((obj) => {
-        const objMonth = ref(new Date(obj.date).getMonth() + 1);
+        const objMonth = ref(new Date(obj.date).getMonth());
         return objMonth.value === targetMonth.value;
     });
 });
 
 const previousMonth = ()=>{
-    
     currentMonthIndex.value = (currentMonthIndex.value - 1 + 12) % 12;
     updateFilteredList.value;
-
 };
+    
 const nextMonth = ()=>{
     currentMonthIndex.value = (currentMonthIndex.value + 1) % 12;
     updateFilteredList.value;
@@ -105,6 +104,4 @@ const deleteItem = (ID: number)=>{
 
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
